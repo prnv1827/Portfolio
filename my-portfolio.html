@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Readex Pro', sans-serif;
+      background-color: #f9faff;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: #f9faff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 70px;
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .name {
+      font-size: 24px;
+      color: #2563eb;
+      font-weight: 800;
+      cursor: default;
+      text-shadow: 1px 2px 3px grey;
+    }
+
+    .menus {
+      display: flex;
+      gap: 30px;
+    }
+
+    .menus li {
+      list-style: none;
+    }
+
+    .menus a {
+      text-decoration: none;
+      color: #2d2d2d;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+      display: inline-block;
+    }
+
+    .menus a:hover {
+      background-color: #e2e8fb;
+      color: #2563eb;
+      transform: scale(1.05);
+    }
+
+    .body-content {
+      display: flex;
+      background-color: #6A73DA;
+      height: 613px;
+      padding: 30px;
+      font-size: 20px;
+      color: #1f2937;
+      cursor: default;
+    }
+
+    .left{
+      width: 50%;
+      font-family: 'Readex Pro', sans-serif;
+    }
+
+    .left h1{
+      color: white;
+      font-size: 65px;
+      text-shadow: 3px 2px 2px rgb(57, 57, 57);
+      padding-top: 55px;
+      padding-left: 20px;
+    }
+
+    .left h3{
+      padding-left: 22px;
+      padding-top: 22px;
+      color: #F59E0B;
+    }
+
+    .left p{
+      padding-left: 22px;
+      padding-top: 22px;
+      color: white;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 32px;
+    }
+
+    button{
+      margin-left: 18px;
+      margin-top: 25px;
+      font-family: 'Readex Pro', sans-serif;
+      cursor: pointer;
+      border: none;
+    }
+
+    .vmw{
+      border-radius: 999px;
+      height: 55px;
+      width: 160px;
+      font-size: 16px;
+      background-color: #F59E0B;
+      color: white;
+    }
+
+    .vmw:hover{
+      background-color: #D97706;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .git{
+      border-radius: 999px;
+      height: 50px;
+      width: 150px;
+      font-size: 16px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .git:hover{
+      background-color: white;
+      color: #2563eb ;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .right{
+      width: 50%; 
+    }
+
+    .profile-image {
+      border-radius: 50%;
+      border: 7px solid rgb(215, 214, 214);
+      margin-left: 190px;
+      margin-top: 110px;
+      height: 300px;
+      box-shadow: 1px 4px 20px white;
+      transform: scale(1);
+      transition: all 0.4s ease-in-out; 
+    }
+
+    .profile-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px 4px white; 
+    }
+
+    .section-heading{
+      padding-top: 70px;
+      font-size: 25px;
+      color: #1E293B;
+      cursor: default;
+      text-align: center;
+    }
+
+    .underline {
+      height: 4px;
+      width: 75px;
+      margin: 12px auto 0;
+      background: linear-gradient(to right, #2563eb, #f59e0b);
+      border-radius: 10px;
+    }
+
+    .about{
+      display: flex;
+      flex-direction: row;
+      padding-top: 120px;
+      background-color: #F8FAFC;
+      height: 700px;
+    }
+
+    .about-left{
+      width: 45%;
+      margin-left: 60px;
+      font-size: 18px;
+      color: #64748B;
+      padding-top: 50px;
+      cursor: default;
+    }
+
+    .about-para{
+      line-height: 32px;
+    }
+
+    .abt-para{
+      margin-top: 20px;
+      line-height: 32px;
+    }
+
+    .about-right{
+      width: 55%;
+    }
+
+    .abt-right-1{
+      display: flex;
+    }
+
+    .abt-right-2{
+      padding-top: 40px;
+      display: flex;
+    }
+
+    .skill1, .skill2, .skill3, .skill4{
+      background-color: #FFFFFF;
+      color: #2563EB;
+      height: 220px;
+      width: 230px;
+      border: 1px solid rgb(230, 230, 230);
+      border-radius: 17px;
+      margin-left: 40px;
+      padding-left: 19px;
+      padding-top: 20px;
+      line-height: 30px;
+      box-shadow: 0px 0px 4px rgb(183, 183, 183);
+      cursor: default;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .skill1 p, .skill2 p, .skill3 p, .skill4 p{
+      color: #64748B;
+      padding-top: 20px;
+    }
+
+    .skill3 h3, .skill4 h3{
+      max-width: 200px;
+    }
+
+    .skill3 p{
+      max-width: 180px;
+    }
+
+    .skill1:hover, .skill2:hover, .skill3:hover, .skill4:hover{
+      transform: translateY(-10px);
+      border: 1px solid #2563EB;
+    }
+
+    /* Projects Section */
+    .projects {
+      background-color: #f9faff;
+      padding: 120px 0;
+      min-height: 800px;
+    }
+
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-top: 80px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+      border-color: #2563eb;
+    }
+
+    .portfolio{
+      margin-top: -13px;
+      margin-left: 30px;
+      height: 200px;
+      width:400px;
+      border: 12px solid white;
+      border-radius: 27px;
+    }
+
+    .foodlink{
+      margin-top: -13px;
+      margin-left: 30px;
+      height: 200px;
+      width:400px;
+      border: 12px solid white;
+      border-radius: 27px;
+    }
+
+    .project-title {
+      font-size: 24px;
+      color: #1e293b;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .project-description {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .tech-tag {
+      background: #e0e7ff;
+      color: #2563eb;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .project-link {
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-align: center;
+      flex: 1;
+    }
+
+    .demo-link {
+      background: #2563eb;
+      color: white;
+    }
+
+    .demo-link:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    .code-link {
+      background: transparent;
+      color: #2563eb;
+      border: 2px solid #2563eb;
+    }
+
+    .code-link:hover {
+      background: #2563eb;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Resume Section */
+    .resume {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 120px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .resume-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .resume h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .resume p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .resume-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin: 60px 0;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #f59e0b;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: #f59e0b;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background: #d97706;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: #f8fafc;
+      padding: 120px 0;
+    }
+
+    .contact-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 80px;
+    }
+
+    .contact-info h3 {
+      color: #1e293b;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: #2563eb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+    }
+
+    .contact-text h4 {
+      color: #1e293b;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .contact-text p {
+      color: #64748b;
+      margin: 0;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #1e293b;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-family: 'Readex Pro', sans-serif;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .footer p {
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: #2563eb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #f59e0b;
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .body-content {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+      }
+
+      .left, .right {
+        width: 100%;
+      }
+
+      .left h1 {
+        font-size: 48px;
+        text-align: center;
+        padding-left: 0;
+      }
+
+      .profile-image {
+        margin: 20px auto 0;
+        display: block;
+      }
+
+      .about {
+        flex-direction: column;
+        height: auto;
+        padding: 60px 20px;
+      }
+
+      .about-left, .about-right {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .abt-right-1, .abt-right-2 {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skill1, .skill2, .skill3, .skill4 {
+        margin: 20px 0;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .menus {
+        gap: 15px;
+      }
+
+      .menus a {
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+    }
+  </style>
+  <title>PORTFOLIO</title>
+</head>
+<body>
+  <nav class="nav">
+    <div class="name">PORTFOLIO</div>
+    <ul class="menus">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#resume">RESUME</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <div class="body-content" id="home">
+    <div class="left">
+        <h1>PRANAV SINGH</h1>
+        <h3>Front-End Developer</h3>
+        <p>I am a professional front-end developer with a passion for building responsive and user-friendly websites. I enjoy creating innovative and impactful digital experiences. As a quick learner, I'm always eager to explore new technologies and stay updated with industry trends.</p>
+        <button class="vmw">View My Work</button>
+        <button class="git">Get In Touch</button>
+    </div>
+    <div class="right">
+       <a href="https://github.com/prnv1827" target="_blank"><img src="https://avatars.githubusercontent.com/u/122626646?v=4" alt="Pranav Singh" class="profile-image"></a>
+    </div>
+  </div>
+
+  <div class="section-heading" id="about">
+    <h1>About Me</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="about">
+    <div class="about-left">
+      <p class="about-para">I'm a front-end developer and second-year ECE student at NIET, passionate about building clean, responsive websites. I specialize in HTML, CSS, and UI/UX design, and I'm currently learning JavaScript, Git, and full-stack development.</p>
+
+      <p class="abt-para">My journey in web development started with a curiosity about how websites work, and it has evolved into a career where I get to solve complex problems and create solutions that make a difference. I believe in writing clean, maintainable code and staying up-to-date with the latest industry trends.</p>
+    </div>
+    <div class="about-right">
+      <div class="abt-right-1">
+        <div class="skill1">
+          <h3>FrontEnd Development</h3>
+          <p>HTML5, CSS3, JavaScript, Tailwind CSS, React JS, Redux, Node JS.</p>
+        </div>
+
+        <div class="skill2">
+          <h3>UI/UX Design</h3>
+          <p>Responsive Design, Mobile-First Approach, User Interface Design, User Experience</p>
+        </div>
+      </div>
+
+      <div class="abt-right-2">
+        <div class="skill3">
+          <h3>Version Control & Git</h3>
+          <p>Git & GitHub, Code History Management, Branching & Merging</p>
+        </div>
+        <div class="skill4">
+          <h3>Problem Solving</h3>
+          <p>Data Structures & Algorithms, Logical Thinking, Coding Challenges</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading" id="projects">
+    <h1>My Projects</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="projects">
+    <div class="projects-container">
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image"><img src="image.png" alt="" class="portfolio"></div>
+          <h3 class="project-title">Personal Portfolio</h3>
+          <p class="project-description">A responsive portfolio website showcasing my skills, projects, and experience. Built with modern CSS techniques and smooth animations.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">Responsive</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link demo-link">Live Demo</a>
+            <a href="#" class="project-link code-link">View Code</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image"><img src="foodlink.png" alt="" class="foodlink"></div>
+          <h3 class="project-title">FOODLINK</h3>
+          <p class="project-description">A web app to share surplus food and reduce waste. Built with HTML, CSS, and JavaScript for a simple, community-driven solution.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://lnkd.in/eHXDvhwk" class="project-link demo-link">Live Demo</a>
+            <a href="https://lnkd.in/eCkvvvDK" class="project-link code-link">View Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resume" id="resume">
+    <div class="resume-content">
+      <h1>My Resume</h1>
+      <p>Passionate front-end developer with expertise in modern web technologies. Currently pursuing ECE at NIET while building innovative web solutions.</p>
+      
+      <div class="resume-stats">
+        <div class="stat-item">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Technologies Mastered</span>
+        </div>
+      </div>
+
+      <a href="Pranav Singh.pdf" class="download-btn" download>Download Resume</a>
+    </div>
+  </div>
+
+  <div class="section-heading" id="contact">
+    <h1>Get In Touch</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="contact">
+    <div class="contact-container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Let's Work Together</h3>
+          <p>I'm always interested in new opportunities and exciting projects. Whether you have a project in mind or just want to chat about web development, feel free to reach out!</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p>pranav.singh@example.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📱</div>
+              <div class="contact-text">
+                <h4>Phone</h4>
+                <p>+91 12345 67890</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-text">
+                <h4>Location</h4>
+                <p>New Delhi, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Pranav Singh. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://github.com/prnv1827" class="social-link" target="_blank">P</a>
+      <a href="#" class="social-link">R</a>
+      <a href="#" class="social-link">N</a>
+      <a href="#" class="social-link">V</a>
+    </div>
+  </footer>
+</body>
+</html>
